@@ -26,7 +26,7 @@ The integrated Transformer model is based on Restomrer (https://github.com/swz30
 
 First, configure the yaml file which is located at `configs/faces.yaml`. Set the root folder of face dataset to `DATA.FOLDER`.
 
-After you download the dataset, please save the highh-resolution images to /../Dataset/HIGH/HR, and save the low-resolution images to ../../Dataset/LOW/LR. Make sure the dataset path is the same to the directory configure in Train.py
+After you download the dataset, please save the high-resolution images to /../Dataset/HIGH/HR, and save the low-resolution images to ../../Dataset/LOW/LR. Make sure the dataset path is the same to the directory configure in Train.py
 
 Environment: Python (Pytorch)
 

@@ -31,7 +31,7 @@ After you download the dataset, please save the high-resolution images to /../Da
 Environment: Python (Pytorch)
 
 To train:
-python3 test.py configs/faces.yaml
+python3 train.py configs/faces.yaml
 
 ```
 CUDA_VISIBLE_DEVICES=2,3 python3 train.py configs/faces.yaml --port 12121

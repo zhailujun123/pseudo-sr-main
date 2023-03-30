@@ -13,15 +13,11 @@ README:
 
         /scratch/group/mburrisgroup/fix_permission.mburrisgroup.sh
 
-
-  - Contact HPRC help desk (help@hprc.tamu.edu) for
-      issues of using this shared directory
-
 # Introduction
 
 This repo is based on [pseudo-sr](https://openaccess.thecvf.com/content_CVPR_2020/papers/Maeda_Unpaired_Image_Super-Resolution_Using_Pseudo-Supervision_CVPR_2020_paper.pdf).
 
-You can get the dataset from [here](https://github.com/jingyang2017/Face-and-Image-super-resolution). After unzip, put HR dataset and LR dataset in the Dataset folder /../Dataset/LOW/LR and /../Dataset/HIGH/HR, respectively. Make sure the data path configured in Train.py file is the same where it is located.
+You can get the dataset from [here](https://github.com/jingyang2017/Face-and-Image-super-resolution). After unzip, put HR dataset and LR dataset in the Dataset folder "/../Dataset/LOW/LR" and "/../Dataset/HIGH/HR", respectively. Make sure the data path configured in Train.py file is the same where it is located.
 
 The integrated Transformer model is based on Restomrer (https://github.com/swz30/Restormer)
 
@@ -30,7 +26,7 @@ The integrated Transformer model is based on Restomrer (https://github.com/swz30
 
 First, configure the yaml file which is located at `configs/faces.yaml`. Set the root folder of face dataset to `DATA.FOLDER`.
 
-After you download the dataset, please save the highh-resolution images to /../Dataset/HIGH/celea_subset/celea_60000_SFD , and save the low-resolution images to ../../Dataset/LOW/widerface_subset/wider_lnew. Make sure the dataset path is the same to the directory configure in Train.py
+After you download the dataset, please save the highh-resolution images to /../Dataset/HIGH/HR, and save the low-resolution images to ../../Dataset/LOW/LR. Make sure the dataset path is the same to the directory configure in Train.py
 
 Environment: Python (Pytorch)
 

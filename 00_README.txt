@@ -19,7 +19,7 @@ README:
 
 This repo is based on [pseudo-sr](https://openaccess.thecvf.com/content_CVPR_2020/papers/Maeda_Unpaired_Image_Super-Resolution_Using_Pseudo-Supervision_CVPR_2020_paper.pdf).
 
-You can get the dataset from [here](https://github.com/jingyang2017/Face-and-Image-super-resolution). After unzip, put HR and LR in the Dataset folder /../Dataset/LOW/widerface_subset/wider_lnew and /../Dataset/HIGH/celea_subset/celea_60000_SF, respectively. Make sure the data path configured in Train.py file is the same where it is located.
+You can get the dataset from [here](https://github.com/jingyang2017/Face-and-Image-super-resolution). After unzip, put HR dataset and LR dataset in the Dataset folder /../Dataset/LOW/LR and /../Dataset/HIGH/HR, respectively. Make sure the data path configured in Train.py file is the same where it is located.
 
 The integrated Transformer model is based on Restomrer (https://github.com/swz30/Restormer)
 

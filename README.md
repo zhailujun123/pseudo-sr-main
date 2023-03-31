@@ -43,4 +43,4 @@ You can use a number between 49152 and 65535 for the port number.
 # Reference
 
 Syed Waqas Zamir, Aditya Arora, Salman Khan, Munawar Hayat, Fahad Shahbaz Khan, Ming-Hsuan Yang. Restormer: Efficient Transformer for High-Resolution Image Restoration
-[pseudo-sr-instance]https://github.com/1999kevin/pseudo-sr
+[pseudo-sr-instance](https://github.com/1999kevin/pseudo-sr.git).

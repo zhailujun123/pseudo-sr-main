@@ -57,7 +57,7 @@ RESUME:
   HR_GAN: False
 
 DATA:
-  FOLDER: /scratch/group/pvamu-tamu/pseudo-sr-main/Dataset/    %/scratch/group/pvamu-tamu/pseudo-sr-main/Dataset/LOW/ LR_ALL.rar   %FOLDER: /home/cui/pseudo-sr-main/Dataset/  
+  FOLDER: /scratch/group/pvamu-tamu/pseudo-sr-main/Dataset    %/scratch/group/pvamu-tamu/pseudo-sr-main/Dataset/LOW/ LR_ALL.rar   %FOLDER: /home/cui/pseudo-sr-main/Dataset/  
   NUM_WORKERS: 8
   IMG_RANGE: 1 # for ESRGAN, set it to 1
   IMG_MEAN_SHIFT: False # for ESRGAN, set it to False

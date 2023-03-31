@@ -46,4 +46,4 @@ Syed Waqas Zamir, Aditya Arora, Salman Khan, Munawar Hayat, Fahad Shahbaz Khan, 
 
 [Restormer-offocial-codes](https://github.com/swz30/Restormer.git)
 
-[pseudo-sr-instance codes](https://github.com/1999kevin/pseudo-sr.git).
+[pseudo-sr-instance-codes](https://github.com/1999kevin/pseudo-sr.git).

@@ -15,7 +15,7 @@ README:
 
 # Introduction
 
-This repo is based on [pseudo-sr](https://openaccess.thecvf.com/content_CVPR_2020/papers/Maeda_Unpaired_Image_Super-Resolution_Using_Pseudo-Supervision_CVPR_2020_paper.pdf).
+This repo is based on [pseudo-sr](https://github.com/yoon28/pseudo-sr.git).
 
 You can get the dataset from [here](https://github.com/jingyang2017/Face-and-Image-super-resolution). After unzip, put HR dataset and LR dataset in the Dataset folder "/../Dataset/LOW/LR" and "/../Dataset/HIGH/HR", respectively. Make sure the data path configured in Train.py file is the same where it is located.
 

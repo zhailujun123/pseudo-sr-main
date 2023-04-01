@@ -121,7 +121,7 @@ def main(rank, world_size, cpu=False):
     training_time = end_time - start_time
     print(f"Total training time: {training_time:.2f}s")
     data_dict = {'start_time': start_time, 'training_time': training_time, 'end_time': end_time}
-    torch.save(data_dict, '/scratch/group/pvamu-tamu/code/training_time.pt') 
+    torch.save(data_dict, 'log_training_time.pt') 
     #############################################################################
             
             

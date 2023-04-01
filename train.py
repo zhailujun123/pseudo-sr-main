@@ -65,9 +65,11 @@ def main(rank, world_size, cpu=False):
         print("Max epoch: {end_ep - 1}, Total iteration: {(end_ep - 1) * len(loader)}, Iterations per epoch: {len(loader)}, Test & Save epoch: every {test_freq} epoches")
 
     loss_avgs = dict()
+    
     ##################################
     start_time = time.time()
     ##################################
+    
     for ep in range(1, end_ep):
         ##################################
         epoch_start_time = time.time()
@@ -89,14 +91,14 @@ def main(rank, world_size, cpu=False):
             print(info + "\r", end="")
             model.lr_decay_step(True)
             ##############################################################  
-           # Compute and print training metrics
-            if i % 10 == 0:
-            time_per_batch = (time.time() - epoch_start_time) / (i + 1)
-            samples_per_second = inputs.size(0) / time_per_batch
-            print(f"Epoch {epoch}, Batch {i}: Loss={loss.item():.4f}, "
-                  f"Time per batch={time_per_batch:.4f}s, "
-                  f"Samples per second={samples_per_second:.2f}")
-        
+            # Compute and print training metrics
+            if b % 10000 == 0:
+                time_per_batch = (time.time() - epoch_start_time) / (i + 1)
+                #samples_per_second = inputs.size(0) / time_per_batch
+                print(f"Epoch {ep}, Batch {b}, "
+                  f"Time per batch={time_per_batch:.4f}s "）
+                  #f"Samples per second={samples_per_second:.2f}")
+            ############################################################## 
         
             
             

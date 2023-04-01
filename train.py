@@ -119,7 +119,8 @@ def main(rank, world_size, cpu=False):
     ############################################################################
     end_time = time.time()
     training_time = end_time - start_time
-    print(f"Total training time: {training_time:.2f}s")       
+    print(f"Total training time: {training_time:.2f}s")
+    torch.save(training_time, '/scratch/group/pvamu-tamu/code/training_time.txt')
     #############################################################################
             
             

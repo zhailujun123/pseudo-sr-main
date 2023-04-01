@@ -51,7 +51,8 @@ def main(rank, world_size, cpu=False):
     loader = get_train_loader(trainset, world_size, batch_per_gpu)
     testset = faces_data(data_lr=os.path.join(CFG.DATA.FOLDER, "testset"), data_hr=None, b_train=False, shuffle=False, img_range=CFG.DATA.IMG_RANGE, rgb=CFG.DATA.RGB)
 
-    end_ep = int(np.ceil(CFG.OPT.MAX_ITER / len(loader))) + 1
+    #Calculates the number of iterations required to complete the training process based on the maximum number of iterations (MAX_ITER) specified in the configuration file (CFG.OPT) and the number of batches in the data loader (len(loader)).
+    end_ep = int(np.ceil(CFG.OPT.MAX_ITER / len(loader))) + 1   # len(loader): This returns the number of batches in the data loader.
     test_freq = max([end_ep // 10, 1])
 
     if rank == last_device:

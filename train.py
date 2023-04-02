@@ -55,7 +55,7 @@ def main(rank, world_size, cpu=False):
     #Calculates the number of iterations required to complete the training process based on the maximum number of iterations (MAX_ITER) specified in the configuration file (CFG.OPT) and the number of batches in the data loader (len(loader)).
     end_ep = int(np.ceil(CFG.OPT.MAX_ITER / len(loader))) + 1   # len(loader): This returns the number of batches in the data loader. MAX_ITER: 100000
     #print("number_epoch", end_ep)
-    print(f"number_epoch is: {end_ep}")
+    print(f"Lujunn number_epoch is: {end_ep}")
     test_freq = max([end_ep // 10, 1])
 
     if rank == last_device:
@@ -98,8 +98,8 @@ def main(rank, world_size, cpu=False):
             ###############################################################
             batch_end_time = time.time()  # measure the end time of batch processing
             batch_training_time = batch_end_time - batch_start_time  # calculate the time taken for processing the batch
-            if b % 10000 == 0:
-                print(f"Total batch training time: {batch_training_time:.2f}s")
+            if b % 10 == 0:
+                print(f"Lujunnnn Total batch training time: {batch_training_time:.2f}s")
                 batch_data_dict = {'batch_start_time': batch_start_time, 'batch_training_time': batch_training_time, 'batch_end_time': batch_end_time}
                 torch.save(batch_data_dict, 'log_batch_training_time.pt')            
             ############################################################## 

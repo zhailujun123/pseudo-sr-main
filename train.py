@@ -93,18 +93,15 @@ def main(rank, world_size, cpu=False):
             model.lr_decay_step(True)
             
             ###############################################################
-            end_time = time.time()  # measure the end time of batch processing
-            
-            ##############################################################  
-            # Compute and print training metrics
+            batch_end_time = time.time()  # measure the end time of batch processing
+            batch_training_time = batch_end_time - batch_start_time  # calculate the time taken for processing the batch
             if b % 10000 == 0:
-                time_per_batch = (time.time() - epoch_start_time) / (i + 1)
-                #samples_per_second = inputs.size(0) / time_per_batch
-                print(f"Epoch {ep}, Batch {b}, "
-                      f"Time per batch={time_per_batch:.4f}s ")
-                  #f"Samples per second={samples_per_second:.2f}")
+                print(f"Total batch training time: {batch_training_time:.2f}s")
+                data_dict = {'batch_start_time': batch_start_time, 'batch_training_time': batch_training_time, 'batch_end_time': batch_end_time}
+                torch.save(data_dict, 'log_batch_training_time.pt') 
+                
             ############################################################## 
-        
+        #epoch_end_time = time.time()  # measure the end time of epoch processing
             
             
 

@@ -54,6 +54,8 @@ def main(rank, world_size, cpu=False):
 
     #Calculates the number of iterations required to complete the training process based on the maximum number of iterations (MAX_ITER) specified in the configuration file (CFG.OPT) and the number of batches in the data loader (len(loader)).
     end_ep = int(np.ceil(CFG.OPT.MAX_ITER / len(loader))) + 1   # len(loader): This returns the number of batches in the data loader. MAX_ITER: 100000
+    #print("number_epoch", end_ep)
+    print(f"number_epoch is: {end_ep}")
     test_freq = max([end_ep // 10, 1])
 
     if rank == last_device:

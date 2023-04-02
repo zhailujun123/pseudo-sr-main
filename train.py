@@ -67,15 +67,16 @@ def main(rank, world_size, cpu=False):
     loss_avgs = dict()
     
     ##################################
-    start_time = time.time()
+    model_start_time = time.time()  # measure the start time of model processing
     ##################################
     
     for ep in range(1, end_ep):
         ##################################
-        epoch_start_time = time.time()
+        epoch_start_time = time.time()  # measure the start time of epoch processing
         ##################################
         model.mode_selector("train")
         for b, batch in enumerate(loader):
+            batch_start_time = time.time()  # measure the start time of batch processing
             lrs = batch["lr"].to(rank)
             hrs = batch["hr"].to(rank)
             zs = batch["z"].to(rank)
@@ -90,6 +91,10 @@ def main(rank, world_size, cpu=False):
                 info += f", {itm[0]}={loss_avgs[itm[0]].get_avg():.3f}" if i > 0 else f" {itm[0]}={loss_avgs[itm[0]].get_avg():.3f}"
             print(info + "\r", end="")
             model.lr_decay_step(True)
+            
+            ###############################################################
+            end_time = time.time()  # measure the end time of batch processing
+            
             ##############################################################  
             # Compute and print training metrics
             if b % 10000 == 0:
@@ -117,11 +122,13 @@ def main(rank, world_size, cpu=False):
         if world_size > 1: dist.barrier()
  
     ############################################################################
-    end_time = time.time()
-    training_time = end_time - start_time
-    print(f"Total training time: {training_time:.2f}s")
-    data_dict = {'start_time': start_time, 'training_time': training_time, 'end_time': end_time}
-    torch.save(data_dict, 'log_training_time.pt') 
+    model_end_time = time.time()
+    model_training_time = model_end_time - model_start_time
+    print(f"Total training time: {model_training_time:.2f}s")
+    data_dict = {'model_start_time': model_start_time, 'model_training_time': model_training_time, 'model_end_time': model_end_time}
+    torch.save(data_dict, 'log_model_training_time.pt') 
+    
+  
     #############################################################################
             
             

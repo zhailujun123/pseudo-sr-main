@@ -63,8 +63,8 @@ def main(rank, world_size, cpu=False):
         os.makedirs(net_save_folder, exist_ok=True)
         os.makedirs(img_save_folder, exist_ok=True)
         print("Output dir: ", CFG.EXP.OUT_DIR)
-        print("Batch_size: {batch_per_gpu * world_size}, Batch_size per GPU: {batch_per_gpu}")
-        print("Max epoch: {end_ep - 1}, Total iteration: {(end_ep - 1) * len(loader)}, Iterations per epoch: {len(loader)}, Test & Save epoch: every {test_freq} epoches")
+        print(f"Batch_size: {batch_per_gpu * world_size}, Batch_size per GPU: {batch_per_gpu}")
+        print(f"Max epoch: {end_ep - 1}, Total iteration: {(end_ep - 1) * len(loader)}, Iterations per epoch: {len(loader)}, Test & Save epoch: every {test_freq} epoches")
 
     loss_avgs = dict()
     

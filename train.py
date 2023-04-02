@@ -98,11 +98,18 @@ def main(rank, world_size, cpu=False):
             if b % 10000 == 0:
                 print(f"Total batch training time: {batch_training_time:.2f}s")
                 batch_data_dict = {'batch_start_time': batch_start_time, 'batch_training_time': batch_training_time, 'batch_end_time': batch_end_time}
-                torch.save(batch_data_dict, 'log_batch_training_time.pt') 
-                
+                torch.save(batch_data_dict, 'log_batch_training_time.pt')            
             ############################################################## 
-        #epoch_end_time = time.time()  # measure the end time of epoch processing
-            
+        ##############Calculate the throughput#####################################################
+        epoch_end_time = time.time()  # measure the end time of epoch processing
+        epoch_time = epoch_end_time - epoch_start_time
+        examples_per_sec = len(trainset) / epoch_time  # calculate the epoch throughput (examples processed per second)
+        epoch_throughput = examples_per_sec
+        print(f"\nEpoch {ep}/{end_ep-1} took {epoch_time:.2f} seconds, epoch throughput={examples_per_sec:.2f} ex/s") 
+        epoch_throughput_data_dict = {'epoch_throughput': epoch_throughput}
+        torch.save(epoch_throughput_data_dict, 'epoch_throughput.pt') 
+        ###########################################################################################   
+                   
             
 
         if ep % 1 == 0 and rank == last_device:

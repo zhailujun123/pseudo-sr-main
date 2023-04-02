@@ -97,8 +97,8 @@ def main(rank, world_size, cpu=False):
             batch_training_time = batch_end_time - batch_start_time  # calculate the time taken for processing the batch
             if b % 10000 == 0:
                 print(f"Total batch training time: {batch_training_time:.2f}s")
-                data_dict = {'batch_start_time': batch_start_time, 'batch_training_time': batch_training_time, 'batch_end_time': batch_end_time}
-                torch.save(data_dict, 'log_batch_training_time.pt') 
+                batch_data_dict = {'batch_start_time': batch_start_time, 'batch_training_time': batch_training_time, 'batch_end_time': batch_end_time}
+                torch.save(batch_data_dict, 'log_batch_training_time.pt') 
                 
             ############################################################## 
         #epoch_end_time = time.time()  # measure the end time of epoch processing

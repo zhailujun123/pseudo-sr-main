@@ -103,7 +103,7 @@ def main(rank, world_size, cpu=False):
         ##############Calculate the throughput#####################################################
         epoch_end_time = time.time()  # measure the end time of epoch processing
         epoch_time = epoch_end_time - epoch_start_time
-        examples_per_sec = len(trainset) / epoch_time  # calculate the epoch throughput (examples processed per second)
+        examples_per_sec = len(trainset) / epoch_time  # calculate the epoch throughput (examples processed per second); len(trainset) is the number of train samples
         epoch_throughput = examples_per_sec
         print(f"\nEpoch {ep}/{end_ep-1} took {epoch_time:.2f} seconds, epoch throughput={examples_per_sec:.2f} ex/s") 
         epoch_throughput_data_dict = {'epoch_throughput': epoch_throughput}

@@ -124,8 +124,6 @@ def main(rank, world_size, cpu=False):
     print(f"Total training time: {model_training_time:.2f}s")
     data_dict = {'model_start_time': model_start_time, 'model_training_time': model_training_time, 'model_end_time': model_end_time}
     torch.save(data_dict, 'log_model_training_time.pt') 
-    
-  
     #############################################################################
             
             

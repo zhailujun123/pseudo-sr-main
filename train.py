@@ -94,14 +94,20 @@ def main(rank, world_size, cpu=False):
             print(info + "\r", end="")
             model.lr_decay_step(True)
             
-            ###############################################################
+            ##############Calculate the bacth training time###############
             batch_end_time = time.time()  # measure the end time of batch processing
-            batch_training_time = batch_end_time - batch_start_time  # calculate the time taken for processing the batch
+            batch_training_time = batch_end_time - batch_start_time  # calculate the batch training time
+            batch_throughput = batch_size / batch_training_time
+            
+            
             if b % 1 == 0:
                 print(f"Lujunnnn {b}th batch training time: {batch_training_time:.2f}s")
                 batch_data_dict = {'batch_start_time': batch_start_time, 'batch_training_time': batch_training_time, 'batch_end_time': batch_end_time}
-                torch.save(batch_data_dict, 'log_batch_training_time.pt')            
+                torch.save(batch_data_dict, 'batch_training_time.pt')            
             ############################################################## 
+            
+            
+        ###########################################################################################   
         ##############Calculate the epoc training time#############################################
         epoch_end_time = time.time()  # measure the end time of epoch processing
         epoch_time = epoch_end_time - epoch_start_time   # calculate the epoch training time
@@ -110,7 +116,7 @@ def main(rank, world_size, cpu=False):
         torch.save(epoch_training_data_dict, 'epoch_training_time.pt') 
         
 
-        ##############Calculate the throughput#####################################################
+        ##############Calculate the epoc throughput################################################
         examples_per_sec = len(trainset) / epoch_time  # calculate the epoch throughput (examples processed per second); len(trainset) is the number of train samples
         epoch_throughput = examples_per_sec
         print(f"throughput Lujunnnn {examples_per_sec:.2f}")

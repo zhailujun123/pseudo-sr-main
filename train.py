@@ -103,7 +103,7 @@ def main(rank, world_size, cpu=False):
             print(f"Lujun {b}th batch_throughput: {batch_throughput:.2f}s")            
             if b % 1 == 0:
                 batch_training_throughput_dict = {'batch_start_time': batch_start_time, 'batch_training_time': batch_training_time, 'batch_end_time': batch_end_time, 'batch_throughput': batch_throughput}
-                torch.save(batch_training_throughput_dict, 'batch_training_throughput_dict.pt')   
+                #torch.save(batch_training_throughput_dict, 'batch_training_throughput_dict.pt')   
                 str_batch_training_throughput_dict = str(batch_training_throughput_dict)
                 with open("batch_training_throughput_dict.txt", "w") as f:
                     f.write(str_batch_training_throughput_dict)
@@ -121,7 +121,7 @@ def main(rank, world_size, cpu=False):
         print(f"throughput Lujunnnn {examples_per_sec:.2f}")
         print(f"\nEpoch {ep}/{end_ep-1} took {epoch_training_time:.2f} seconds, epoch throughput={examples_per_sec:.2f} ex/s") 
         epoch_training_troughput_dict = {'epoch_training_time': epoch_training_time,'epoch_throughput': epoch_throughput}
-        torch.save(epoch_training_troughput_dict, 'epoch_training_time_throughput.pt') 
+        #torch.save(epoch_training_troughput_dict, 'epoch_training_time_throughput.pt') 
         str_epoch_training_troughput_dict= str(epoch_training_troughput_dict)
         with open("epoch_training_troughput_dict.txt", "w") as f:
             f.write(str_epoch_training_troughput_dict)
@@ -148,7 +148,7 @@ def main(rank, world_size, cpu=False):
     model_training_time = model_end_time - model_start_time
     print(f"Total training time: {model_training_time:.2f}s")
     model_training_dict = {'model_start_time': model_start_time, 'model_training_time': model_training_time, 'model_end_time': model_end_time, 'total_epoch':end_ep}
-    torch.save(model_training_dict, 'model_training_time.pt') 
+    #torch.save(model_training_dict, 'model_training_time.pt') 
     str_model_training_dict = str(model_training_dict)
     with open("model_training_dict.txt", "w") as f:
         f.write(str_model_training_dict)

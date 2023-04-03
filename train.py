@@ -99,13 +99,14 @@ def main(rank, world_size, cpu=False):
             batch_training_time = batch_end_time - batch_start_time  # calculate the batch training time
             batch_size_amount = batch_per_gpu * world_size
             batch_throughput = batch_size_amount / batch_training_time
-            print(f"Lujunnnn {b}th batch training time: {batch_training_time:.2f}s")
-            print(f"Lujun {b}th batch_throughput: {batch_throughput:.2f}s")
-            
-            
+            print(f"Lujun {b}th batch training time: {batch_training_time:.2f}s")
+            print(f"Lujun {b}th batch_throughput: {batch_throughput:.2f}s")            
             if b % 1 == 0:
-                batch_data_dict = {'batch_start_time': batch_start_time, 'batch_training_time': batch_training_time, 'batch_end_time': batch_end_time, 'batch_throughput': batch_throughput}
-                torch.save(batch_data_dict, 'batch_training_time_throughput.pt')            
+                batch_training_throughput_dict = {'batch_start_time': batch_start_time, 'batch_training_time': batch_training_time, 'batch_end_time': batch_end_time, 'batch_throughput': batch_throughput}
+                torch.save(batch_training_throughput_dict, 'batch_training_throughput_dict.pt')   
+                str_batch_training_throughput_dict = str(batch_training_throughput_dict)
+                with open("batch_training_throughput_dict.txt", "w") as f:
+                    f.write(str_batch_training_throughput_dict)
             #############################################################################
             #############################################################################
             

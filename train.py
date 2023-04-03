@@ -146,7 +146,7 @@ def main(rank, world_size, cpu=False):
     ##############Calculate the model training time#############################  
     model_end_time = time.time()
     model_training_time = model_end_time - model_start_time
-    print(f"Total training time: {model_training_time:.2f}s")
+    print(f"Total model training time: {model_training_time:.2f}s")
     model_training_dict = {'model_start_time': model_start_time, 'model_training_time': model_training_time, 'model_end_time': model_end_time, 'total_epoch':end_ep}
     #torch.save(model_training_dict, 'model_training_time.pt') 
     str_model_training_dict = str(model_training_dict)

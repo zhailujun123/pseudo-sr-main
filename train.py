@@ -199,4 +199,4 @@ if __name__ == "__main__":
     elif n_gpus > 1:
         print(f"multi-gpu: {n_gpus}", f", time: {datetime.now().strftime('%Y-%d-%m_%H:%M:%S')}")
         mp.spawn(main, nprocs=n_gpus, args=(n_gpus, False), join=True)
-    print("fin.")
+    print("Job ended")

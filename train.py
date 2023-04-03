@@ -141,14 +141,19 @@ def main(rank, world_size, cpu=False):
                 save_tensor_image(os.path.join(img_save_folder, f"{b:04d}_sr.png"), sr, CFG.DATA.IMG_RANGE, CFG.DATA.RGB)
                 save_tensor_image(os.path.join(img_save_folder, f"{b:04d}_lr.png"), lr, CFG.DATA.IMG_RANGE, CFG.DATA.RGB)
         if world_size > 1: dist.barrier()
- 
-    ############################################################################
+            
+    ############################################################################        
+    ##############Calculate the model training time#############################  
     model_end_time = time.time()
     model_training_time = model_end_time - model_start_time
     print(f"Total training time: {model_training_time:.2f}s")
-    data_dict = {'model_start_time': model_start_time, 'model_training_time': model_training_time, 'model_end_time': model_end_time, 'total_epoch':end_ep}
-    torch.save(data_dict, 'log_model_training_time.pt') 
-    #############################################################################
+    model_training_dict = {'model_start_time': model_start_time, 'model_training_time': model_training_time, 'model_end_time': model_end_time, 'total_epoch':end_ep}
+    torch.save(model_training_dict, 'model_training_time.pt') 
+    str_model_training_dict = str(model_training_dict)
+    with open("model_training_dict.txt", "w") as f:
+        f.write(str_model_training_dict)
+    ###########################################################################
+    ###########################################################################
             
             
     if rank == last_device:

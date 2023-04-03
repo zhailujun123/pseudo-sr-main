@@ -116,13 +116,16 @@ def main(rank, world_size, cpu=False):
         epoch_end_time = time.time()  # measure the end time of epoch processing
         epoch_training_time = epoch_end_time - epoch_start_time   # calculate the epoch training time
         examples_per_sec = len(trainset) / epoch_training_time  # calculate the epoch throughput (examples processed per second); len(trainset) is the number of train samples
-        epoch_throughput = examples_per_sec
-        
+        epoch_throughput = examples_per_sec       
         print(f"{ep}th epoch training time: {epoch_training_time:.2f}s")
         print(f"throughput Lujunnnn {examples_per_sec:.2f}")
         print(f"\nEpoch {ep}/{end_ep-1} took {epoch_training_time:.2f} seconds, epoch throughput={examples_per_sec:.2f} ex/s") 
-        epoch_training_troughput_data_dict = {'epoch_training_time': epoch_training_time,'epoch_throughput': epoch_throughput}
-        torch.save(epoch_training_troughput_data_dict, 'epoch_training_time_throughput.pt',epoch_throughput_data_dict, 'epoch_throughput.pt') 
+        epoch_training_troughput_dict = {'epoch_training_time': epoch_training_time,'epoch_throughput': epoch_throughput}
+        torch.save(epoch_training_troughput_dict, 'epoch_training_time_throughput.pt') 
+        str_epoch_training_troughput_dict= str(epoch_training_troughput_dict)
+        with open("epoch_training_troughput_dict.txt", "w") as f:
+            f.write(str_epoch_training_troughput_dict)
+        
         ##########################################################################################
         ##########################################################################################
     

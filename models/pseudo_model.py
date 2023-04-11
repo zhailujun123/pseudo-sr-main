@@ -140,7 +140,7 @@ class Pseudo_Model():
         self.opt_Dx.zero_grad()
         loss_D_x.backward()
         self.opt_Dx.step()
-        loss_dict["D_x"] = loss_D_x.item()
+        loss_dict["D_x"] = loss_D_x.item()  ## assigning the value of loss_D_x to a key "D_x" in dictionary loss_dict.
 
         # D_y
         pred_fake_Yds = self.D_y(fake_Yds.detach())

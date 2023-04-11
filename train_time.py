@@ -191,7 +191,7 @@ if __name__ == "__main__":
 
         ###############################################
         print("torch.cuda.is_available",torch.cuda.is_available())
-        print("Lujun11")
+ 
         ######################################
     if n_gpus <= 1:
         print("single proc.", f", time: {datetime.now().strftime('%Y-%d-%m_%H:%M:%S')}")

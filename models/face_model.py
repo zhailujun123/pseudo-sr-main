@@ -206,6 +206,7 @@ if __name__ == "__main__":
   
     ###########################################IPU########################################
     optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+    opts = poptorch.Options()
     poptorch_model = poptorch.trainingModel(model, options=opts, optimizer=optimizer)  #PopTorch library that creates a training model from a given PyTorch model
     ######################################################################################
     print(info)

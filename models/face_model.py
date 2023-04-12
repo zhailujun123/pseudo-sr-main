@@ -206,7 +206,7 @@ if __name__ == "__main__":
         info += f", {itm[0]}={itm[1]:.3f}" if i > 0 else f" {itm[0]}={itm[1]:.3f}"
   
     ###########################################IPU########################################
-    optimizer = optim.Adam(model.parameters(), lr=learning_rate)  #
+    optimizer = optim.Adam(model.parameters(), lr=0.001)
     self.lr_Gxy
     opts = poptorch.Options()
     poptorch_model = poptorch.trainingModel(model, options=opts, optimizer=optimizer)  #PopTorch library that creates a training model from a given PyTorch model

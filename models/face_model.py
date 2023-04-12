@@ -1,4 +1,5 @@
 import torch
+import poptorch
 import torch.nn as nn
 import torch.optim as optim
 from torch.nn.parallel import DistributedDataParallel as DDP

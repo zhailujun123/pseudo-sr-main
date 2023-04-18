@@ -8,7 +8,7 @@ import argparse
 from yacs.config import CfgNode
 
 import torch
-import poptorch
+#import poptorch
 import torch.multiprocessing as mp
 import torch.distributed as dist
 
